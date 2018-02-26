@@ -35,9 +35,14 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="header-content">
-            <h1 class="header-title">Python之禅</h1>
+            <h1 class="header-title">{{ item.title }}</h1>
+            <p class="header-date">By <a href="/author/{{ item.author }}">{{ item.author }}</a>, {{ item.date }}, 分类： <a href="/category/{{ item.category }}">{{ item.category }}</a></p>
             <div class="header-underline"></div>
-            <p class="header-subtitle header-subtitle-homepage">凡心所向，素履所往。生如逆旅，一苇以航。</p>
+            <div class="clearfix"></div>
+            <p class="pull-right header-tags">
+              <span class="glyphicon glyphicon-tags mr5" aria-hidden="true"></span>
+              <a href="/tag/item.tag">metaclass</a>
+            </p>
           </div>
         </div>
       </div>
@@ -45,22 +50,10 @@
 
   </div>
 
-  <div class="archive-container">
-    <div class="container content archive">
-      <h2><a href="https://foofish.net/index.html">最新文章 </a></h2>
-      <dl class="dl-horizontal">
-        {% for item in items %}
-          <dt>{{ item.date }}</dt>
-          <dd><a href="/article/{{ item.id }}">{{ item.title }}</a></dd>
-        {% else %}
-          <li>This would display if the 'item' collection were empty</li>
-        {% endfor %}
-      </dl>
-    </div>
-  </div>
-
-  <div class="container navigation">
-    <a class="navigate pull-right" href="/article/page/{{ nextPage }}">更 多 >>> <i class="fa fa-caret-right"></i></a>
+  <div class="container content">
+    <article>
+      <p>{{ item.text }}</p>
+    </article>
   </div>
 
   <div class="footer gradient-2">
