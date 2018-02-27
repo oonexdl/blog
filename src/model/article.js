@@ -1,6 +1,7 @@
+const Base = require('./base.js');
 const moment = require('moment');
 
-module.exports = class extends think.Model {
+module.exports = class extends Base {
   async getList(page) {
     const pageSize = 20;
     const offset = (page - 1) * pageSize;
@@ -10,9 +11,5 @@ module.exports = class extends think.Model {
     }
 
     return items;
-  }
-
-  getOneById(id) {
-    return this.where({ id: id}).find();
   }
 }

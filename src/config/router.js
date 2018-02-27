@@ -1,5 +1,6 @@
 module.exports = [
   ['/article/page/:page', 'index', 'get'],
   ['/article/:id', 'article/view', 'get'],
-  ['/about', 'author', 'get']
+  ['/about', 'author', 'get'],
+  ['/categories', 'category', 'get']
 ];
