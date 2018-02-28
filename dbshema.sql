@@ -36,3 +36,5 @@ update article set category=1 where id>3;
 
 SELECT category.name as category, JSON_ARRAYAGG(article.id) FROM article LEFT JOIN (category) ON (category.id = article.category) group by category;
 SELECT category.name as category, JSON_ARRAYAGG(JSON_OBJECT('id', article.id, 'title', article.title, 'date', article.date)) FROM article LEFT JOIN (category) ON (category.id = article.category) group by category;
+
+update article set tags='["a", "b", "c", "d", "e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v", "w","x", "y","z"]' where id=1;

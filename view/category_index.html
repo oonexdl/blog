@@ -1,10 +1,16 @@
 {% extends "index_index.html" %}
 
+{% block header %}
+<h1 class="header-title text-uppercase">分类</h1>
+<div class="header-underline"></div>
+<p class="header-subtitle header-subtitle-homepage">所有分类都在这</p>
+{% endblock %}
+
 {% block archive %}
 <div class="archive-container">
   <div class="container content archive">
     {% for item in items %}
-      <h2><a href="https://foofish.net/index.html">{{ item.category }}</a></h2>
+      <h2><a href="/category/{{ item.id }}">{{ item.name }}</a></h2>
       <dl class="dl-horizontal">
         {% for article in item.articles %}
           <dt>{{ article.date }}</dt>

@@ -1,0 +1,27 @@
+{% extends "index_index.html" %}
+
+{% block header %}
+<h1 class="header-title text-uppercase">标签</h1>
+<div class="header-underline"></div>
+<p class="header-subtitle header-subtitle-homepage">所有标签都在这</p>
+{% endblock %}
+
+{% block archive %}
+<div class="archive-container">
+  <div class="container content archive">
+    <h2><a href="/tags">所有标签</a></h2>
+    <dl class="dl-horizontal">
+    <ul class="tagcloud">
+      {% for item in items %}
+      <li class="tag-{{ [2,3,4] | random }}">
+        <a href="/tag/{{ item }}">{{ item }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}
+
+{% block navigation %}
+{% endblock %}
+
