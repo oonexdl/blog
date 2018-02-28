@@ -1,102 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>blog</title>
-  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/static/css/nest.css" rel="stylesheet">
-  <link href="/static/css/fonts.css" rel="stylesheet">
-  <link href="/static/css/pygment.css" rel="stylesheet">
-</head>
-<body>
-  <div
-    class="header-container"
-    style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://foofish.net/images/peitu/karsten-wurth-205496.jpg'); background-position: center; background-size: cover;"
-  >
-    <!-- Static navbar -->
-    <div class="container">
-      <div class="header-nav">
-        <div class="header-logo">
-          <a class="pull-left" href="/">
-            FooFish-Python之禅
-          </a>
-        </div>
-        <div class="nav pull-right">
-          <a href="/">首 页</a>
-          <a href="/categories">分 类</a>
-          <a href="/tags">标 签</a>
-          <a  href="/about">关于</a>
-        </div>
-      </div>
-    </div>
-    <!-- /Static navbar -->
+{% extends "index_index.html" %}
 
-    <div class="container header-wrapper">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="header-content">
-            <h1 class="header-title">Python之禅</h1>
-            <div class="header-underline"></div>
-            <p class="header-subtitle header-subtitle-homepage">凡心所向，素履所往。生如逆旅，一苇以航。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
+{% block archive %}
+<div class="archive-container">
+  <div class="container content archive">
+    {% for item in items %}
+      <h2><a href="https://foofish.net/index.html">{{ item.category }}</a></h2>
+      <dl class="dl-horizontal">
+        {% for article in item.articles %}
+          <dt>{{ article.date }}</dt>
+          <dd><a href="/article/{{ article.id }}">{{ article.title }}</a></dd>
+        {% else %}
+          <li>This would display if the 'item' collection were empty</li>
+        {% endfor %}
+      </dl>
+    {% endfor %}
   </div>
+</div>
+{% endblock %}
 
-  <div class="archive-container">
-    <div class="container content archive">
-      {% for item in items %}
-        <h2><a href="https://foofish.net/index.html">{{ item.category }}</a></h2>
-        <dl class="dl-horizontal">
-          {% for article in item.articles %}
-            <dt>{{ article.date }}</dt>
-            <dd><a href="/article/{{ article.id }}">{{ article.title }}</a></dd>
-          {% else %}
-            <li>This would display if the 'item' collection were empty</li>
-          {% endfor %}
-        </dl>
-      {% endfor %}
-    </div>
-  </div>
+{% block navigation %}
+{% endblock %}
 
-  <div class="container navigation">
-    <a class="navigate pull-right" href="/article/page/{{ nextPage }}">更 多 >>> <i class="fa fa-caret-right"></i></a>
-  </div>
-
-  <div class="footer gradient-2">
-    <div class="container footer-container ">
-      <div class="row">
-        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
-          <div class="footer-title">Sitemap</div>
-          <ul class="list-unstyled">
-            <li><a href="/categories">分类</a></li>
-            <li><a href="/tags">标签</a></li>
-            <li><a href="/about">关于</a></li>
-          </ul>
-        </div>
-        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
-          <div class="footer-title">Social</div>
-          <ul class="list-unstyled">
-            <li><a href="https://github.com/seasons521" target="_blank">GitHub</a></li>
-            <li><a href="http://weibo.com/seasons521" target="_blank">微博</a></li>
-          </ul>
-        </div>
-        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
-          <div class="footer-title">Links</div>
-          <ul class="list-unstyled">
-            <li><a href="https://m.do.co/c/af4cff8f42bc" target="_blank">DigitalOcean</a></li>
-            <li><a href="http://python.org/" target="_blank">Python.org</a></li>
-          </ul>
-        </div>
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-          <p class="pull-right text-right">
-            <small>&copy; xiao东篱 2018</small>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
