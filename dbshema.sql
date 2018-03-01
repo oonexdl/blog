@@ -4,6 +4,8 @@ create table article(
   date DATETIME NOT NULL,
   text TEXT CHARACTER SET utf8,
   author VARCHAR(20) NOT NULL,
+  category INT,
+  tags JSON,
   PRIMARY KEY(id)
 );
 insert into article(id, title, date)values(NULL, "use python handle HTML 5 ways", "2017-12-26");
@@ -38,3 +40,7 @@ SELECT category.name as category, JSON_ARRAYAGG(article.id) FROM article LEFT JO
 SELECT category.name as category, JSON_ARRAYAGG(JSON_OBJECT('id', article.id, 'title', article.title, 'date', article.date)) FROM article LEFT JOIN (category) ON (category.id = article.category) group by category;
 
 update article set tags='["a", "b", "c", "d", "e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v", "w","x", "y","z"]' where id=1;
+
+# auth method changed after upgrade to 8.0
+use mysql;
+update user set authentication_string=password('abc123_'), plugin='mysql_native_password' where user='root';

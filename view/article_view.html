@@ -13,9 +13,8 @@
 
 {% block archive %}
 <div class="container content">
-  <p>{{ markdown | safe }}</p>
   <article>
-    <p>{{ item.text }}</p>
+    <p>{{ item.text | safe }}</p>
   </article>
 </div>
 {% endblock %}
