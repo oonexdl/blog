@@ -26,6 +26,6 @@ pm2 startOrReload pm2.json
 ## Deploy manual
 
 ```
-# disown is for zsh shell
+# `disown` is for zsh shell
 nohup node production.js & disown
 ```
