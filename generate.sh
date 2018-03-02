@@ -8,5 +8,4 @@ else
     cd mynote && git pull && cd ..;
 fi
 
-rootPath="$(pwd)/mynote/"
 node production.js "crontab/generate?root=$(pwd)/mynote/"
