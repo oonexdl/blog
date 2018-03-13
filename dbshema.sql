@@ -44,3 +44,4 @@ update article set tags='["a", "b", "c", "d", "e","f","g","h","i","j","k","l","m
 # auth method changed after upgrade to 8.0
 use mysql;
 update user set authentication_string=password('abc123_'), plugin='mysql_native_password' where user='root';
+update user set Host='%' where user='root';

@@ -39,7 +39,7 @@ exports.model = {
     database: 'blog',
     prefix: '',
     encoding: 'utf8',
-    host: '127.0.0.1',
+    host: 'db',
     port: '',
     user: 'root',
     password: 'abc123_',
