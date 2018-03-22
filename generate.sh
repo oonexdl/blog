@@ -3,9 +3,7 @@
 set -u
 
 if [[ ! -d mynote ]]; then
-    git clone git@github.com:seasons521/mynote.git
-else
-    cd mynote && git pull && cd ..;
+    git clone https://github.com/seasons521/mynote.git
 fi
 
 node production.js "crontab/generate?root=$(pwd)/mynote/"

@@ -20,17 +20,15 @@ services:
       dockerfile: ./docker/node/Dockerfile
     container_name: node-server
     restart: on-failure
-    ports:
-      - "8360"
     working_dir: /srv/blog
+    volumes:
+      - ./mynote:/srv/blog/mynote
     command: ["node", "development.js"]
 
   db:
     image: mysql:8.0
     container_name: mysql-server
     restart: on-failure
-    ports:
-      - "3307:3306"
     volumes:
       - /data/mysql:/var/lib/mysql
       - ./docker/mysql/initdb.d:/docker-entrypoint-initdb.d
