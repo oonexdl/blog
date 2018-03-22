@@ -32,7 +32,7 @@ usage() {
   done
 }
 
-case $1 in
+case "$1" in
   up )
     up
     ;;
