@@ -2,10 +2,7 @@ version: "3.0"
 services:
 
   web:
-    image: nginx:prod
-    build:
-      context: .
-      dockerfile: ./docker/nginx/Dockerfile
+    image: nginx:latest
     container_name: web-server
     restart: always
     ports:
@@ -13,7 +10,7 @@ services:
       - "443:443"
     volumes:
       - ./nginx.prod.conf:/etc/nginx/conf.d/default.conf
-      - ./.well-known/acme-challenge/:/srv/blog/www/.well-known/acme-challenge/
+      - ./www:/srv/blog/www
 
   node:
     image: node:prod
