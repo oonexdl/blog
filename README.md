@@ -29,3 +29,15 @@ pm2 startOrReload pm2.json
 # `disown` is for zsh shell
 nohup node production.js & disown
 ```
+
+## Deploy with docker
+
+```
+ENV=prod ./deploy.sh up
+```
+
+## Get ssl certification
+
+```
+./cert.sh run
+```
