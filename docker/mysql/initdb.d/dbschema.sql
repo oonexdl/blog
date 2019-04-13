@@ -24,6 +24,7 @@ CREATE TABLE `category` (
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=utf8mb4;
 
-USE `mysql`;
+-- USE `mysql`;
 
-UPDATE user set authentication_string=password('abc123_'), plugin='mysql_native_password' where User='root';
+-- password func is deprecated in mysql 8.0
+-- UPDATE user set authentication_string=password('abc123_'), plugin='mysql_native_password' where User='root';

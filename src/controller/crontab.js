@@ -5,7 +5,7 @@ const readdir = think.promisify(fs.readdir, fs);
 const readFile = think.promisify(fs.readFile, fs);
 
 const validDir = [
-  'mongodb'
+  'article'
 ];
 
 module.exports = class extends Base {
@@ -32,10 +32,10 @@ module.exports = class extends Base {
           title: title,
           date: date,
           text: text,
-          author: 'seasons521',
+          author: 'oonexdl',
           category: categoryId
         };
-        let result = await article.add(item);
+        await article.add(item);
       }
     }
 

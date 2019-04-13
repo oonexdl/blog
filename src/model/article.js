@@ -40,8 +40,7 @@ module.exports = class extends Base {
     return this.query(`select id,title,DATE_FORMAT(date, \'%Y-%m-%d\') as date from article where JSON_CONTAINS(tags, '["${tag}"]')=1;`);
   }
 
-  getListByCategory(category)
-  {
+  getListByCategory(category) {
     return this.query(`select id,title,DATE_FORMAT(date, \'%Y-%m-%d\') as date from article where category=${category};`);
   }
 }
